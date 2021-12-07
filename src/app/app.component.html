@@ -1,0 +1,48 @@
+<!--BEGIN LICENSE BLOCK--> 
+<!--Interneuron Terminus
+
+Copyright(C) 2021  Interneuron CIC
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.If not, see<http://www.gnu.org/licenses/>. -->
+<!--END LICENSE BLOCK--> 
+
+<div *ngIf="isModalShown">
+  <div [config]="{ show: true, backdrop: 'static' }" (onHidden)="onAssessmentDetailsInModalHidden()" bsModal
+    #formModal="bs-modal" class="modal fade sepsis-form-modal" tabindex="-1" role="dialog"
+    aria-labelledby="dialog-auto-name">
+
+    <div class="modal-dialog modal-lg sepsis-form-modal-dialog">
+      <div class="modal-content">
+        <!--<div style="position:relative;">
+        <div style="position: absolute;top: -4px; right: 4px;z-index:6000;">
+          <button type="button" class="close" aria-label="Close" (click)="onClose(true)">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>-->
+        <div class="modal-body">
+          <div *ngIf="showLoadingIndicator" style="min-height: 100vh;">
+            <inline-loading-indicator [showLoadingIndicator]="showLoadingIndicator">loading form...
+            </inline-loading-indicator>
+          </div>
+          <ng-template #formContainer></ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <message-popup [showMessagePopup]="showConfirmationMessagePopup" [genericMessagePopupVM]="confirmationMessagePopup">
+  </message-popup>

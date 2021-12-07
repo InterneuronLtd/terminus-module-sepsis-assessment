@@ -1,0 +1,97 @@
+
+.checkbox-lg .custom-control-label::before, 
+.checkbox-lg .custom-control-label::after {
+  top: .8rem;
+  width: 1.55rem;
+  height: 1.55rem;
+}
+
+.checkbox-lg .custom-control-label {
+  padding-top: 13px;
+  padding-left: 6px;
+}
+
+
+.checkbox-xl .custom-control-label::before, 
+.checkbox-xl .custom-control-label::after {
+  top: 1.2rem;
+  width: 1.85rem;
+  height: 1.85rem;
+}
+
+.checkbox-xl .custom-control-label {
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+span.cls_012{font-family:Arial,serif;font-size:48.5px;color:rgb(254,255,255);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_014{font-family:Arial,serif;font-size:65.4px;color:rgb(254,255,255);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_016{font-family:Arial,serif;font-size:40.2px;color:rgb(254,255,255);font-weight:bold;font-style:normal;text-decoration: none}
+
+span.cls_019{font-family:Arial,serif;font-size:38.5px;color:rgb(254,255,255);font-weight:bold;font-style:normal;text-decoration: none}
+
+.options-checkbox-container {
+  margin-left: 5%;
+}
+.options-checkbox {
+  width: 100%;
+}
+.section-number {
+  color:#fec900;
+}
+.section-number h1 {
+  font-size: 5rem;
+  font-weight: bolder;
+}
+.section-header-text {
+  font-size: 1.8rem;font-weight: bolder;text-align: center;
+}
+.section-header-text i {
+  color: red;
+}
+.action-btn-group-disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+.section-header-subtext {
+  text-align: left;
+  font-size: 1rem;
+  font-weight: bolder;
+}
+.submit-box {
+  background-color: red;
+  max-height: 0px;
+  overflow-x: hidden;
+  transition: ease-in-out 400ms max-height;
+  padding: 2%;
+  width: 100%;
+}
+
+.submit-box.opened {
+  max-height: 500px;
+  transition: ease-in-out 600ms max-height;
+}
+.submit-box h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.submit-box h2 {
+  font-size: 1rem;
+  padding: 1%;
+  font-weight: bold;
+  color: #fff;
+}
+.section-submit-panel {
+  width: 100%;
+  margin-top: -1%;
+  font-weight: bolder;
+  text-align:center;
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)  {
+  .section-number h1 {
+    font-size: 3.5rem;
+    font-weight: bolder;
+  }
+}

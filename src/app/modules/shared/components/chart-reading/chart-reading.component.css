@@ -1,0 +1,36 @@
+
+.chart { text-align: center; font-size: 1rem; border: 1px solid #fff;}
+
+.chart .header-row {
+  font-size: 0.9rem; font-weight: bold;
+}
+.chart-modal {
+    z-index:10000 !important;display:block;background: rgba(255, 255, 255, 0.8);
+}
+.chart-modal .close {
+    position: absolute;top: -4px; right: 4px;z-index:11000;
+}
+.chart .header-row h4 { font-size: 1rem !important }
+.chart .header-row h5 { font-size: 0.9rem !important }
+
+.chart .sub-header-row {
+  font-size: 0.9rem; 
+  font-weight: bold;
+  color:#fff;
+}
+.chart .sub-header-row h4 { font-size: 1rem !important }
+.chart .sub-header-row h5 { font-size: 0.9rem !important }
+
+
+.chart .age-col {
+  background-color: #fec900;
+  font-weight: 500;
+}
+.chart .severe-col {
+  background-color: red;
+  font-weight: 500;
+}
+.chart .moderate-col {
+  background-color: #fe8700;
+  font-weight: 500;
+}

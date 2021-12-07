@@ -1,0 +1,74 @@
+<!--BEGIN LICENSE BLOCK--> 
+<!--Interneuron Terminus
+
+Copyright(C) 2021  Interneuron CIC
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.If not, see<http://www.gnu.org/licenses/>. -->
+<!--END LICENSE BLOCK--> 
+
+<div class=" card ">
+  <div class="card-header">
+  </div>
+  <div class="card-body">
+    <div class="alert alert-danger" *ngIf="ErrorMessage !==''" role="alert">
+      {{ErrorMessage}}
+    </div>
+    <div *ngIf="displaySelectionText" align="right" class="d-flex flex-row-reverse ">
+      <div class="font-weight-bold" style="font-size: 1.5rem" [ngClass]="displaySelectionCss">{{displaySelectionText}}
+      </div>
+    </div>
+    <div class="d-flex flex-row bd-highlight mb-3">
+      <div class="p-2 bd-highlight">
+        <h1 style="color:#fec900; font-size: 5em;">04</h1>
+      </div>
+      <div class="p-2 bd-highlight" style="font-size: 1em;">
+        <b>GIVE IV / IO ANTIBIOTICS</b>
+
+        <div class="btn-group btn-sm" btnRadioGroup [(ngModel)]="actionFourModelVM.taskFouraction">
+          <label class="btn btn-secondary btn-sm"
+            [ngClass]="{'focus active': actionFourModelVM.taskFouraction == 'Not Done', 'action-btn-group-disabled': readOnly}"
+            (click)="onDecisionChange('Not Done')" btnRadio="Not Done" [disabled]="readOnly" tabindex="1"
+            role="button">Not Done</label>
+          <label class="btn btn-success btn-sm"
+            [ngClass]="{'focus active': actionFourModelVM.taskFouraction == 'Completed', 'action-btn-group-disabled': readOnly}"
+            (click)="onDecisionChange('Completed')" btnRadio="Completed" [disabled]="readOnly" tabindex="2"
+            role="button">Completed</label>
+          <label class="btn btn-danger btn-sm"
+            [ngClass]="{'focus active': actionFourModelVM.taskFouraction == 'Not Required', 'action-btn-group-disabled': readOnly}"
+            (click)="onDecisionChange('Not Required')" btnRadio="Not Required" [disabled]="readOnly" tabindex="3"
+            role="button">Not Required</label>
+        </div>
+        <p>MAXIMUM DOSE BROAD SPECTRUM THERAPY</p>
+        <p>CONSIDER: LOCAL POLICY / ALLERGY STATUS / ANTIVIRALS</p>
+        <div class="form-group" *ngIf="actionFourModelVM.taskFouraction ==='Not Required'">
+          <label for="exampleFormControlTextarea1">Notes:</label>
+          <textarea class="form-control rounded-0" [(ngModel)]="actionFourModelVM.taskFourNotes" id="taskTwoNotes"
+            rows="2"></textarea>
+        </div>
+      </div>
+      <div class="p-2 bd-highlight" align="center">
+        <div *ngIf="actionFourModelVM.taskFouraction ==='Completed'">
+          <b>TIME</b>
+          <timepicker class="" [disabled]="readOnly" [(ngModel)]="actionFourModelVM.taskFourTime"
+            [showMeridian]="false"></timepicker>
+          <input type="text" [disabled]="readOnly" class="form-control" #dp="bsDatepicker" bsDatepicker
+            [(ngModel)]="actionFourModelVM.taskFourdate">
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,102 @@
+<!--BEGIN LICENSE BLOCK--> 
+<!--Interneuron Terminus
+
+Copyright(C) 2021  Interneuron CIC
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.If not, see<http://www.gnu.org/licenses/>. -->
+<!--END LICENSE BLOCK--> 
+
+<div class="clearfix">
+  <!-- <div class="row"> -->
+  <!-- <div class="col-md-10"> -->
+  <div class="d-flex justify-content-start flex-row">
+    <div class="flex-grow-1">
+      <div class="card text-left">
+        <div class="card-header"></div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-xs-5 col-sm-4 col-md-3 section-number">
+              <h1 class="card-title">01</h1>
+            </div>
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-12 section-header-text">Does the child look unwell, are there parental concerns, or has PEWS triggered?
+                </div>
+              </div>
+              <div class="row" style="text-align: center;">
+                <div class="col-md-12">
+                  <div class="btn-group" (click)="onDecisionChange($event)" btnRadioGroup
+                    [(ngModel)]="sectionOneVM.selectedYesNo">
+                    <label class="btn btn-secondary"
+                      [ngClass]="{'focus active': sectionOneVM.selectedYesNo == 'NOT ANSWERED', 'action-btn-group-disabled': readOnly}"
+                      btnRadio="NOT ANSWERED" [disabled]="readOnly" tabindex="0" role="button">NOT
+                      ANSWERED</label>
+                    <label class="btn btn-success"
+                      [ngClass]="{'focus active': sectionOneVM.selectedYesNo == 'YES', 'action-btn-group-disabled': readOnly}"
+                      btnRadio="YES" tabindex="1" [disabled]="readOnly" role="button">YES</label>
+                    <label class="btn btn-danger"
+                      [ngClass]="{'focus active': sectionOneVM.selectedYesNo == 'NO', 'action-btn-group-disabled': readOnly}"
+                      btnRadio="NO" tabindex="2" [disabled]="readOnly" role="button">NO</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="displaySelectionText" class="d-flex flex-row-reverse col-md-3">
+              <div class="font-weight-bold" style="font-size: 1.5rem" [ngClass]="displaySelectionCss">
+                {{displaySelectionText}}</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 section-header-subtext">
+              RISK FACTORS FOR SEPSIS INCLUDE:
+            </div>
+          </div>
+          <div class="d-flex flex-row flex-wrap options-checkbox-container">
+            <div class="options-checkbox">
+              <app-option-checkbox key="Recenttraumasurgeryinvasiveprocedure"
+                text="Recent trauma / surgery / invasive procedure" [modelToBind]="sectionOneVM"
+                [disabled]="readOnly || disableOptions" (optionChange)="onOptionChange($event)"></app-option-checkbox>
+            </div>
+            <div class="options-checkbox">
+              <app-option-checkbox key="Indwellinglinesbrokenskin" text="Indwelling lines / broken skin"
+                [modelToBind]="sectionOneVM" [disabled]="readOnly || disableOptions"
+                (optionChange)="onOptionChange($event)"></app-option-checkbox>
+            </div>
+            <div class="options-checkbox">
+              <app-option-checkbox key="Impairedimmunity"
+                text="Impaired immunity (e.g. diabetes, steroids, chemotherapy)" [modelToBind]="sectionOneVM"
+                [disabled]="readOnly || disableOptions" (optionChange)="onOptionChange($event)"></app-option-checkbox>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <message-popup [showMessagePopup]="showConfirmationMessagePopup" [genericMessagePopupVM]="confirmationMessagePopup">
+    </message-popup>
+    <loading-indicator [showLoadingIndicator]="showLoadingIndicator"></loading-indicator>
+    <message-popup [showMessagePopup]="showSaveStatusMessagePopup" [genericMessagePopupVM]="saveStatusMessagePopup">
+    </message-popup>
+
+  </div>
+</div>
+<div *ngIf="showSubmitPanel" class="d-flex align-content-center flex-wrap section-submit-panel">
+  <div class="submit-box align-middle" [class.opened]="showSubmitPanel">
+    <h2> SEPSIS UNLIKELY CONSIDER OTHER DIAGNOSIS</h2>
+    <button type="button" (click)="confirmSave()" class="btn btn-primary">Submit</button>
+  </div>
+</div>

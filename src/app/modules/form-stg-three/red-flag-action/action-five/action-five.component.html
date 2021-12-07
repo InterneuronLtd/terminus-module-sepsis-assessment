@@ -1,0 +1,70 @@
+<!--BEGIN LICENSE BLOCK--> 
+<!--Interneuron Terminus
+
+Copyright(C) 2021  Interneuron CIC
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.If not, see<http://www.gnu.org/licenses/>. -->
+<!--END LICENSE BLOCK--> 
+
+<div class=" card ">
+  <div class="card-header">
+  </div>
+  <div class="card-body">
+    <div class="alert alert-danger" *ngIf="ErrorMessage !==''" role="alert">
+      {{ErrorMessage}}
+    </div>
+    <div *ngIf="displaySelectionText" align="right" class="d-flex flex-row-reverse ">
+      <div class="font-weight-bold" style="font-size: 1.5rem" [ngClass]="displaySelectionCss">{{displaySelectionText}}</div>
+    </div>
+    <div class="d-flex flex-row bd-highlight mb-3">
+      <div class="p-2 bd-highlight">
+        <h1 class="label-num">05</h1>
+      </div>
+      <div class="p-2 bd-highlight" style="font-size: 1em;">
+        <b>GIVE IV FLUIDS</b>
+
+        <div class="btn-group btn-sm" btnRadioGroup [(ngModel)]="actionFiveModelVM.taskFiveaction">
+          <label class="btn btn-secondary btn-sm"
+            [ngClass]="{'focus active': actionFiveModelVM.taskFiveaction == 'Not Done', 'action-btn-group-disabled': readOnly}" 
+            (click)="onDecisionChange('Not Done')" btnRadio="Not Done" [disabled]="readOnly"  tabindex="1" role="button">Not Done</label> 
+          <label class="btn btn-success btn-sm"
+            [ngClass]="{'focus active': actionFiveModelVM.taskFiveaction == 'Completed', 'action-btn-group-disabled': readOnly}" 
+            (click)="onDecisionChange('Completed')" btnRadio="Completed" [disabled]="readOnly" tabindex="2" role="button">Completed</label>
+          <label class="btn btn-danger btn-sm"
+            [ngClass]="{'focus active': actionFiveModelVM.taskFiveaction == 'Not Required', 'action-btn-group-disabled': readOnly}" 
+            (click)="onDecisionChange('Not Required')" btnRadio="Not Required" [disabled]="readOnly" tabindex="3" role="button">Not
+            Required</label>
+        </div>
+        <p>GIVE FLUID BOLUS OF 20 ml/kg if age &lt;16, 500ml if 16+</p>
+        <p>NICE RECOMMENDS USING LACTATE TO GUIDE FURTHER FLUID THERAPY</p>
+        <div class="form-group" *ngIf="actionFiveModelVM.taskFiveaction ==='Not Required'">
+          <label for="exampleFormControlTextarea1">Notes:</label>
+          <textarea class="form-control rounded-0" [disabled]="readOnly" [(ngModel)]="actionFiveModelVM.taskFiveNotes" id="taskTwoNotes"
+            rows="2"></textarea>
+        </div>
+      </div>
+      <div class="p-2 bd-highlight" align="center">
+        <div *ngIf="actionFiveModelVM.taskFiveaction ==='Completed'">
+          <b>TIME</b>
+          <timepicker class="" [disabled]="readOnly" [(ngModel)]="actionFiveModelVM.taskFiveTime" [showMeridian]="false"></timepicker>
+          <input type="text" [disabled]="readOnly" class="form-control" #dp="bsDatepicker" bsDatepicker
+          [(ngModel)]="actionFiveModelVM.taskFivedate" >
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

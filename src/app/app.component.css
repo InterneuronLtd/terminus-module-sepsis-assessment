@@ -1,0 +1,47 @@
+
+.sepsis-form-modal {
+    /* z-index: 3000; */
+    z-index: 5000 !important;
+}
+.sepsis-form-modal-dialog {
+    /* max-width: 1200px !important;
+    width: 1200px !important; */
+    height: 92% !important;
+  }
+.sepsis-form-modal-dialog-header {
+    background-color: red !important;
+    color: #fff !important;
+}
+.sepsis-form-modal-dialog-header-title {
+    font-size: 2rem !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+}
+
+bs-datepicker-container, bs-daterangepicker-container{z-index:10000 !important}
+
+
+
+.sepsis-form-modal-dialog .modal-content {
+  /* 80% of window height */
+  height: 92% !important;
+}
+
+.sepsis-form-modal-dialog .modal-body {
+  /* 100% = dialog height, 120px = header + footer */
+  max-height: calc(100% - 20px) !important;
+  overflow-y: auto !important;
+}
+
+.sepsis-form-modal-dialog .modal-body::-webkit-scrollbar {
+    -webkit-appearance: none !important;
+    width: 7px !important;
+    height: 7px!important;
+    -webkit-overflow-scrolling: auto!important;
+}
+  
+.sepsis-form-modal-dialog .modal-body::-webkit-scrollbar-thumb {
+    border-radius: 4px !important;
+    background-color: rgba(0,0,0,.5) !important;
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5)!important;
+}

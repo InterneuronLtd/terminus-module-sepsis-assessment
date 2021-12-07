@@ -1,0 +1,10 @@
+
+.header-container {
+    margin-bottom: 10px;
+}
+.header-container .form-header-text {
+    color:white; background-color: red; text-align: center;width: 76%; padding: 2px;
+}
+.header-container .form-sub-text {
+    width: 23%; background-color: #fec900; font-size: 2rem; font-weight: bold; text-transform: capitalize; margin-left: 1%;
+}

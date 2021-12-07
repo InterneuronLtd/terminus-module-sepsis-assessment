@@ -1,0 +1,172 @@
+<!--BEGIN LICENSE BLOCK--> 
+<!--Interneuron Terminus
+
+Copyright(C) 2021  Interneuron CIC
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.If not, see<http://www.gnu.org/licenses/>. -->
+<!--END LICENSE BLOCK--> 
+
+<div class=" card ">
+  <div class="card-header">
+  </div>
+  <div class="card-body">
+    <div class="alert alert-danger" *ngIf="ErrorMessage !==''" role="alert">
+      {{ErrorMessage}}
+    </div>
+    <div class="d-flex flex-row flex-wrap bd-highlight mb-3">
+      <div class="p-2 bd-highlight">
+        <h1 style="color:#fec900; font-size: 5em;">01</h1>
+      </div>
+      <div class="p-2 bd-highlight flex-lg-fill" style="font-size: 1em;">
+        <h4>Ensure senior clinical review within 1 hour:</h4>
+        <div class="form-group">
+          <div class="btn-group btn-sm" btnRadioGroup [(ngModel)]="actionOneModelVM.seniorClinicalReview">
+            <label class="btn btn-secondary btn-sm"
+              [ngClass]="{'focus active': actionOneModelVM.seniorClinicalReview == 'Required'}"
+              (click)="onSeniorClinicalReviewChange('Required')" btnRadio="Required" tabindex="1"
+              role="button">Required</label>
+            <label class="btn btn-success btn-sm"
+              [ngClass]="{'focus active': actionOneModelVM.seniorClinicalReview == 'Completed'}"
+              (click)="onSeniorClinicalReviewChange('Completed')" btnRadio="Completed" tabindex="2"
+              role="button">Completed</label>
+            <label class="btn btn-danger btn-sm"
+              [ngClass]="{'focus active': actionOneModelVM.seniorClinicalReview == 'Not Required'}"
+              (click)="onSeniorClinicalReviewChange('Not Required')" btnRadio="Not Required" tabindex="3"
+              role="button">Not
+              Required</label>
+          </div>
+        </div>
+
+      </div>
+      <div class="p-2 bd-highlight time-section">
+        <div *ngIf="actionOneModelVM.seniorClinicalReview ==='Completed'">
+          <b>TIME</b>
+          <div class="timepicker-table">
+            <timepicker [(ngModel)]="actionOneModelVM.seniorClinicalReviewTime" [showMeridian]="false"></timepicker>
+          </div>
+          <input type="text" class="form-control" #dp="bsDatepicker" bsDatepicker
+            [(ngModel)]="actionOneModelVM.seniorClinicalReviewDate">
+        </div>
+      </div>
+      
+    </div>
+    <div class="form-group flex-lg-fill" *ngIf="actionOneModelVM.seniorClinicalReview ==='Not Required'">
+      <label for="txtTaskOneNotes">Notes:</label>
+      <textarea class="form-control rounded-0" [disabled]="readOnly" [(ngModel)]="actionOneModelVM.taskOneNotes" id="taskOneNotes" name="txtTaskOneNotes"
+        rows="2"></textarea>
+    </div>
+  </div>
+</div>
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<div class=" card ">
+  <div class="card-header">
+  </div>
+  <div class="card-body">
+    <div class="alert alert-danger" *ngIf="ErrorMessage !==''" role="alert">
+
+    </div>
+    <div class="d-flex flex-row flex-wrap bd-highlight mb-3">
+      <div class="p-2 bd-highlight">
+        <h1 style="color:#fec900; font-size: 5em;">02</h1>
+      </div>
+      <div class="p-2 bd-highlight flex-lg-fill" style="font-size: 1em;">
+        <h4>Blood Sent And Reviewed:</h4>
+        <div class="form-group">
+
+          <div class="btn-group btn-sm" btnRadioGroup [(ngModel)]="actionOneModelVM.bloodsSentAndReviewed">
+            <label class="btn btn-secondary btn-sm"
+              [ngClass]="{'focus active': actionOneModelVM.bloodsSentAndReviewed == 'Required'}"
+              (click)="onBloodsSentAndReviewedChange('Required')" btnRadio="Required" tabindex="1"
+              role="button">Required</label>
+            <label class="btn btn-success btn-sm"
+              [ngClass]="{'focus active': actionOneModelVM.bloodsSentAndReviewed == 'Completed'}"
+              (click)="onBloodsSentAndReviewedChange('Completed')" btnRadio="Completed" tabindex="2"
+              role="button">Completed</label>
+            <label class="btn btn-danger btn-sm"
+              [ngClass]="{'focus active': actionOneModelVM.bloodsSentAndReviewed == 'Not Required'}"
+              (click)="onBloodsSentAndReviewedChange('Not Required')" btnRadio="Not Required" tabindex="3"
+              role="button">Not
+              Required</label>
+          </div>
+        </div>
+      </div>
+      <div class="p-2 bd-highlight time-section">
+        <div *ngIf="actionOneModelVM.bloodsSentAndReviewed ==='Completed'">
+          <b>TIME</b>
+          <div class="timepicker-table">
+            <timepicker [(ngModel)]="actionOneModelVM.bloodsSentAndReviewedTime" [showMeridian]="false"></timepicker>
+          </div>
+          <input type="text" class="form-control" #dp="bsDatepicker" bsDatepicker
+            [(ngModel)]="actionOneModelVM.bloodsSentAndReviewedate">
+        </div>
+      </div>
+      
+    </div>
+    <div class="form-group flex-lg-fill" *ngIf="actionOneModelVM.bloodsSentAndReviewed ==='Not Required'">
+      <label for="txtTaskTwoNotes">Notes:</label>
+      <textarea class="form-control rounded-0" [disabled]="readOnly" [(ngModel)]="actionOneModelVM.taskTwoNotes" id="taskTwoNotes" name="txtTaskTwoNotes"
+        rows="2"></textarea>
+    </div>
+  </div>
+</div>
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<div class=" card ">
+  <div class="card-header">
+  </div>
+  <div class="card-body">
+    <div class="alert alert-danger" *ngIf="ErrorMessage !==''" role="alert">
+
+    </div>
+    <div class="d-flex flex-row flex-wrap bd-highlight mb-3">
+      <div class="p-2 bd-highlight">
+        <h1 style="color:#fec900; font-size: 5em;">03</h1>
+      </div>
+      <div class="p-2 bd-highlight  flex-lg-fill" style="font-size: 1em;">
+        <h4>Antibiotics Required:</h4>
+        <div class="form-group">
+
+          <div class="btn-group btn-sm" btnRadioGroup [(ngModel)]="actionOneModelVM.antibioticsRequired">
+            <label class="btn btn-success btn-sm"
+              [ngClass]="{'focus active': actionOneModelVM.antibioticsRequired == 'Yes'}"
+              (click)="onAntibioticsRequiredChange('Yes')" btnRadio="Yes" tabindex="2" role="button">Yes</label>
+            <label class="btn btn-danger btn-sm"
+              [ngClass]="{'focus active': actionOneModelVM.antibioticsRequired == 'No'}"
+              (click)="onAntibioticsRequiredChange('No')" btnRadio="No" tabindex="3" role="button">No</label>
+          </div>
+        </div>
+        <div class="p-2 bd-highlight">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+<div class=" card ">
+  <div class="card-header">
+  </div>
+  <div class="card-body">
+    <div class="form-group">
+      <h3>RECORD ADDITIONAL NOTES HERE:</h3>
+      <h5>e.g. allergy status, arrival of specialist teams, de-escalation of care, delayed antimicrobial decision making, variance from Sepsis Six</h5>
+      <textarea class="form-control rounded-0" [(ngModel)]="actionOneModelVM.amberFlagNotes" id="amberFlagNotes"
+        rows="2"></textarea>
+    </div>
+  </div>
+</div>

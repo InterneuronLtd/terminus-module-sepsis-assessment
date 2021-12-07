@@ -1,0 +1,77 @@
+<!--BEGIN LICENSE BLOCK--> 
+<!--Interneuron Terminus
+
+Copyright(C) 2021  Interneuron CIC
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.If not, see<http://www.gnu.org/licenses/>. -->
+<!--END LICENSE BLOCK--> 
+
+<div *ngIf="true">
+    <div class="close-container">
+        <div class="close-panel">
+            <button type="button" class="close close-btn" aria-label="Close" (click)="onFormClose()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    <div *ngIf="showLoading" style="min-height: 100vh;">
+        <inline-loading-indicator [showLoadingIndicator]="showLoading">loading form...</inline-loading-indicator>
+    </div>
+    <ng-container *ngIf="showFormSections">
+        <app-form-common-header headerText="SEPSIS SCREENING TOOL ACUTE ASSESSMENT" subTextRight="AGE 18+">
+        </app-form-common-header>
+        <ng-container *ngIf="formSection1TemplateVersionId === 1.0">
+            <app-form4-section-one [assessment]="assessment" [actionMode]="assessmentContext.action" (saveComplete)="onSaveComplete($event)">
+            </app-form4-section-one>
+        </ng-container>
+        <ng-container *ngIf="formSection2TemplateVersionId === 1.0">
+            <div *ngIf="formStgFourContextService.displaySectionTwo">
+                <app-form4-section-two [assessment]="assessment" [actionMode]="assessmentContext.action"
+                    (saveComplete)="onSaveComplete($event)"></app-form4-section-two>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="formSection3TemplateVersionId === 1.0">
+            <div *ngIf="formStgFourContextService.displaySectionThree">
+                <app-form4-section-three [assessment]="assessment" [actionMode]="assessmentContext.action"
+                    (saveComplete)="onSaveComplete($event)">
+                </app-form4-section-three>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="formSection3TemplateVersionId === 1.0">
+            <div *ngIf="formStgFourContextService.displaySectionFour">
+                <app-form4-section-four [assessment]="assessment" [actionMode]="assessmentContext.action"
+                    (saveComplete)="onSaveComplete($event)"></app-form4-section-four>
+            </div>
+        </ng-container>
+    </ng-container>
+
+</div>
+<ng-container *ngIf="showTasKSections">
+    <ng-container *ngIf="showRedFlagTasKSections">
+        <app-form4-red-flag-action [assessment]="assessment" [actionMode]="assessmentContext.action"
+            (saveComplete)="onSaveComplete($event)"></app-form4-red-flag-action>
+    </ng-container>
+    <ng-container *ngIf="showAmberFlagTasKSections">
+        <app-form4-amber-flag-action [assessment]="assessment" [actionMode]="assessmentContext.action"
+            (saveComplete)="onSaveComplete($event)"></app-form4-amber-flag-action>
+    </ng-container>
+</ng-container>
+<message-popup [showMessagePopup]="showCloseConfirmationMessagePopup"
+    [genericMessagePopupVM]="confirmationMessagePopup">
+</message-popup>
+<loading-indicator [showLoadingIndicator]="showFullLoadingIndicator"></loading-indicator>
+<message-popup [showMessagePopup]="showSaveStatusMessagePopup" [genericMessagePopupVM]="saveStatusMessagePopup">
+</message-popup>

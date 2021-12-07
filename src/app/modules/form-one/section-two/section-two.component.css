@@ -1,0 +1,58 @@
+
+.options-checkbox-container {
+  margin-left: 5%;
+}
+.options-checkbox {
+  width: 33%;
+}
+.section-number {
+  color:#fec900;
+}
+.section-number h1 {
+  font-size: 5rem;
+  font-weight: bolder;
+}
+.section-header-text {
+  font-size: 1.8rem;font-weight: bolder;text-align: center;
+}
+.action-btn-group-disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+.section-header-subtext {
+  text-align: left;
+  font-size: 1rem;
+  font-weight: bolder;
+}
+
+.submit-box {
+  background-color: #fec900;
+  max-height: 0px;
+  overflow-x: hidden;
+  transition: ease-in-out 400ms max-height;
+  padding: 2%;
+  width: 100%;
+}
+
+.submit-box.opened {
+  max-height: 500px;
+  transition: ease-in-out 600ms max-height;
+}
+.submit-box h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.section-submit-panel {
+  width: 100%;
+  text-align:center;
+  margin-top: -1%;
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)  {
+  .section-number h1 {
+    font-size: 3.5rem;
+    font-weight: bolder;
+  }
+  .options-checkbox {
+    width: 49%;
+  }
+}

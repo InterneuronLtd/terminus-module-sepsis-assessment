@@ -1,0 +1,10 @@
+
+.close-container {
+    position: relative;
+}
+.close-container .close-panel {
+    position: absolute;top: -22px; right: -14px;z-index:6000;
+}
+.close-container .close-panel .close-btn {
+    font-size:1.6rem;
+}

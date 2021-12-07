@@ -1,0 +1,18 @@
+
+.submit-section {
+    text-align: center;
+    margin: 1%;
+}
+.sub-header {
+    color:white; 
+    font-size: 2rem; 
+    background-color: red;
+}
+.sub-header2 {
+    color:white; 
+    font-size: 1.5rem; 
+    background-color: red;
+}
+.sub-header-row {
+    margin: 0.1rem;
+}

@@ -1,0 +1,12 @@
+
+span.cls_018{font-family:Arial,serif;font-size:44.7px;color:rgb(254,255,255);font-weight:bold;font-style:normal;text-decoration: none}
+
+.close-container {
+    position: relative;
+}
+.close-container .close-panel {
+    position: absolute;top: -22px; right: -14px;z-index:6000;
+}
+.close-container .close-panel .close-btn {
+    font-size:1.6rem;
+}

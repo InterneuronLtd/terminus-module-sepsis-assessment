@@ -1,0 +1,158 @@
+<!--BEGIN LICENSE BLOCK--> 
+<!--Interneuron Terminus
+
+Copyright(C) 2021  Interneuron CIC
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.If not, see<http://www.gnu.org/licenses/>. -->
+<!--END LICENSE BLOCK--> 
+
+
+<div class=" card ">
+  <div class="card-header">
+  </div>
+  <div class="card-body">
+    <div class="alert alert-danger" *ngIf="ErrorMessage !==''" role="alert">
+      {{ErrorMessage}}
+    </div>
+    <div *ngIf="displaySelectionText" align="right" class="d-flex flex-row-reverse ">
+      <div class="font-weight-bold" style="font-size: 1.5rem" [ngClass]="displaySelectionCss">{{displaySelectionText}}</div>
+    </div>
+    <div class="d-flex flex-row bd-highlight mb-3">
+      <div class="p-2 bd-highlight">
+        <h1 style="color:#fec900; font-size: 5em;">03</h1>
+      </div>
+      <div class="p-2 bd-highlight" style="font-size: 1em;">
+        <b>OBTAIN IV / IO ACCESS, TAKE BLOODS</b>
+        <div class="btn-group btn-sm" btnRadioGroup [(ngModel)]="actionThreeModelVM.taskThreeaction">
+          <label class="btn btn-secondary btn-sm"
+            [ngClass]="{'focus active': actionThreeModelVM.taskThreeaction == 'Not Done', 'action-btn-group-disabled': readOnly}"
+            (click)="onDecisionChange('Not Done')" btnRadio="Not Done" [disabled]="readOnly" tabindex="1"
+            role="button">Not Done</label>
+          <label class="btn btn-success btn-sm"
+            [ngClass]="{'focus active': actionThreeModelVM.taskThreeaction == 'Completed', 'action-btn-group-disabled': readOnly}"
+            (click)="onDecisionChange('Completed')" btnRadio="Completed" [disabled]="readOnly" tabindex="2"
+            role="button">Completed</label>
+          <label class="btn btn-danger btn-sm"
+            [ngClass]="{'focus active': actionThreeModelVM.taskThreeaction == 'Not Required', 'action-btn-group-disabled': readOnly}"
+            (click)="onDecisionChange('Not Required')" btnRadio="Not Required" [disabled]="readOnly" tabindex="3"
+            role="button">Not Required</label>
+        </div>
+
+        <div class="form-group" *ngIf="actionThreeModelVM.taskThreeaction ==='Completed'">
+          <div class="row">
+            <div class="col-md-1" style=" font-size: 85px;"></div>
+            <div class="col-md-11">
+
+              <div class="d-flex flex-row flex-wrap options-checkbox-container">
+                <div class="form-check form-check-inline custom-checkbox checkbox-lg options-checkbox">
+                  <input type="checkbox" [(ngModel)]="actionThreeModelVM.BLOODCULTURES" [disabled]="readOnly"
+                    (change)="itemsubmit($event,'BLOODCULTURES','BLOOD CULTURES')" class="custom-control-input"
+                    id="BLOODCULTURES">
+                  <label class="custom-control-label"  for="BLOODCULTURES">
+                    BLOOD CULTURES
+                  </label>
+                </div>
+              </div>
+              <div class="d-flex flex-row flex-wrap options-checkbox-container">
+                <div class="form-check form-check-inline custom-checkbox checkbox-lg options-checkbox">
+                  <input type="checkbox" [(ngModel)]="actionThreeModelVM.BloodGlucose" 
+                    (change)="itemsubmit($event,'BloodGlucose','Blood Glucose')"  [disabled]="readOnly" class="custom-control-input"
+                    id="BloodGlucose">
+                  <label class="custom-control-label"  for="BloodGlucose"> 
+                    Blood Glucose
+                  </label>
+                </div>
+              </div>
+              <div class="d-flex flex-row flex-wrap options-checkbox-container">
+                <div class="form-check form-check-inline custom-checkbox checkbox-lg options-checkbox">
+                  <input type="checkbox" [(ngModel)]="actionThreeModelVM.Lactate" [disabled]="readOnly"
+                    (change)="itemsubmit($event,'Lactate','Lactate')" class="custom-control-input" id="Lactate">
+                  <label class="custom-control-label"  for="Lactate">
+                    Lactate
+                  </label>
+                </div>
+              </div>
+              <div class="d-flex flex-row flex-wrap options-checkbox-container">
+                <div class="form-check form-check-inline custom-checkbox checkbox-lg options-checkbox">
+                  <input type="checkbox" [(ngModel)]="actionThreeModelVM.FBC" [disabled]="readOnly" (change)="itemsubmit($event,'FBC','FBC')"
+                    class="custom-control-input" id="FBC">
+                  <label class="custom-control-label"  for="FBC">
+                    FBC
+                  </label>
+                </div>
+              </div>
+
+              <div class="d-flex flex-row flex-wrap options-checkbox-container">
+                <div class="form-check form-check-inline custom-checkbox checkbox-lg options-checkbox">
+                  <input type="checkbox" [(ngModel)]="actionThreeModelVM.UandEs" [disabled]="readOnly"
+                    (change)="itemsubmit($event,'UandEs','U&Es')" class="custom-control-input" id="UandEs">
+                  <label class="custom-control-label"  for="UandEs">
+                    U&Es
+                  </label>
+                </div>
+              </div>
+              <div class="d-flex flex-row flex-wrap options-checkbox-container">
+                <div class="form-check form-check-inline custom-checkbox checkbox-lg options-checkbox">
+                  <input type="checkbox" [(ngModel)]="actionThreeModelVM.CRP" (change)="itemsubmit($event,'CRP','CRP')" [disabled]="readOnly"
+                    class="custom-control-input" id="CRP">
+                  <label class="custom-control-label"  for="CRP">
+                    CRP
+                  </label>
+                </div>
+              </div>
+              <div class="d-flex flex-row flex-wrap options-checkbox-container">
+                <div class="form-check form-check-inline custom-checkbox checkbox-lg options-checkbox">
+                  <input type="checkbox" [(ngModel)]="actionThreeModelVM.Clotting" [disabled]="readOnly"
+                    (change)="itemsubmit($event,'Clotting','Clotting')" class="custom-control-input" id="Clotting">
+                  <label class="custom-control-label"  for="Clotting">
+                    Clotting
+                  </label>
+                </div>
+              </div>
+              <div class="d-flex flex-row flex-wrap options-checkbox-container">
+                <div class="form-check form-check-inline custom-checkbox checkbox-lg options-checkbox">
+                  <input type="checkbox" [(ngModel)]="actionThreeModelVM.LumbarPuncture" [disabled]="readOnly"
+                    (change)="itemsubmit($event,'LumbarPuncture','Lumbar Puncture')" class="custom-control-input"
+                    id="LumbarPuncture">
+                  <label class="custom-control-label"  for="LumbarPuncture">
+                    Lumbar Puncture
+                  </label>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="form-group" *ngIf="actionThreeModelVM.taskThreeaction ==='Not Required'">
+          <label for="exampleFormControlTextarea1">Notes:</label>
+          <textarea class="form-control rounded-0" [(ngModel)]="actionThreeModelVM.taskthreeNotes" [disabled]="readOnly" id="taskTwoNotes"
+            rows="2"></textarea>
+        </div>
+      </div>
+      <div class="p-2 bd-highlight" align="center">
+        <div *ngIf="actionThreeModelVM.taskThreeaction ==='Completed'">
+          <b>TIME</b>
+          <timepicker class="" [disabled]="readOnly" [(ngModel)]="actionThreeModelVM.taskThreeTime" [showMeridian]="false"></timepicker>
+          <input type="text" [disabled]="readOnly" class="form-control" #dp="bsDatepicker" bsDatepicker
+          [(ngModel)]="actionThreeModelVM.taskThreedate">
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

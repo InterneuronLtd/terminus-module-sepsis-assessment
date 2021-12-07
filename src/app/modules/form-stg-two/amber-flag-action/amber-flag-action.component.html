@@ -1,0 +1,41 @@
+<!--BEGIN LICENSE BLOCK--> 
+<!--Interneuron Terminus
+
+Copyright(C) 2021  Interneuron CIC
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.If not, see<http://www.gnu.org/licenses/>. -->
+<!--END LICENSE BLOCK--> 
+
+  
+<div class="row sub-header-row">
+  <div class="col-md-12 sub-header">FURTHER REVIEW REQUIRED</div>
+
+</div>
+<div *ngIf='showAllActions' style="margin-top:2%;">
+  <ng-container *ngIf="amberTemplateVersionId === 1.0">
+    <app-form2-amber-action-one [assessment]="assessment" [actionMode]="actionMode"></app-form2-amber-action-one>
+  </ng-container>
+</div>
+<div class="submit-section">
+  <button type="submit" (click)="confirmSave()" class="btn btn-primary">Submit</button>
+</div>
+<div>
+  <message-popup [showMessagePopup]="showConfirmationMessagePopup" [genericMessagePopupVM]="confirmationMessagePopup">
+  </message-popup>
+  <loading-indicator [showLoadingIndicator]="showLoadingIndicator"></loading-indicator>
+  <message-popup [showMessagePopup]="showSaveStatusMessagePopup" [genericMessagePopupVM]="saveStatusMessagePopup">
+  </message-popup>
+</div>

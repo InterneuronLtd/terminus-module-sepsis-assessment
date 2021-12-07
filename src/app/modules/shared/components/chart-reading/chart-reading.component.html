@@ -1,0 +1,133 @@
+<!--BEGIN LICENSE BLOCK--> 
+<!--Interneuron Terminus
+
+Copyright(C) 2021  Interneuron CIC
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.If not, see<http://www.gnu.org/licenses/>. -->
+<!--END LICENSE BLOCK--> 
+
+<div *ngIf="isModalShown" [config]="{ show: true }" class="modal fade chart-modal" id="chartModal" tabindex="-1"
+    (onHidden)="onHidden()" role="dialog" aria-labelledby="showChartModalLabel" aria-hidden="false" bsModal
+    #chartModal="bs-modal">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div style="position:relative;">
+                <div class="close">
+                    <button type="button" class="close" aria-label="Close" (click)="hideModal(true)">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table chart" cellspacing="0" border="1">
+                        <thead class="bg-primary">
+                            <tr class="header-row">
+                                <th>
+                                    <h4>Age</h4>
+                                    <h5>(Years)</h5>
+                                </th>
+                                <th colspan="2">
+                                    <h4>Tachypnoea</h4>
+                                    <h5>(breaths per minute)</h5>
+                                </th>
+                                <th colspan="2">
+                                    <h4>Tachycardia</h4>
+                                    <h5>(beats per minute)</h5>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="sub-header-row">
+                                <td class="age-col"></td>
+                                <td class="severe-col">
+                                    <h5>Severe</h5>
+                                </td>
+                                <td class="moderate-col">
+                                    <h5>Moderate</h5>
+                                </td>
+                                <td class="severe-col">
+                                    <h5>Severe</h5>
+                                </td>
+                                <td class="moderate-col">
+                                    <h5>Moderate</h5>
+                                </td>
+                            </tr>
+                            <tr *ngIf="showUpto5">
+                                <td class="age-col">
+                                    &lt;1
+                                </td>
+                                <td class="severe-col">≥60</td>
+                                <td class="moderate-col">50-59</td>
+                                <td class="severe-col">≥160</td>
+                                <td class="moderate-col">150-159</td>
+                            </tr>
+                            <tr *ngIf="showUpto5">
+                                <td class="age-col">1-2</td>
+                                <td class="severe-col">≥50</td>
+                                <td class="moderate-col">40-49</td>
+                                <td class="severe-col">≥150</td>
+                                <td class="moderate-col">140-149</td>
+                            </tr>
+                            <tr *ngIf="showUpto5">
+                                <td class="age-col">3-4</td>
+                                <td class="severe-col">≥40</td>
+                                <td class="moderate-col">35-39</td>
+                                <td class="severe-col">≥140</td>
+                                <td class="moderate-col">130-139</td>
+                            </tr>
+                            <tr *ngIf="showUpto12">
+                                <td class="age-col">5</td>
+                                <td class="severe-col">≥29</td>
+                                <td class="moderate-col">24-28</td>
+                                <td class="severe-col">≥130</td>
+                                <td class="moderate-col">120-129</td>
+                            </tr>
+                            <tr *ngIf="showUpto12">
+                                <td class="age-col">6-7</td>
+                                <td class="severe-col">≥27</td>
+                                <td class="moderate-col">24-26</td>
+                                <td class="severe-col">≥120</td>
+                                <td class="moderate-col">110-119</td>
+                            </tr>
+                            <tr *ngIf="showUpto12">
+                                <td class="age-col">8-11</td>
+                                <td class="severe-col">≥25</td>
+                                <td class="moderate-col">22-24</td>
+                                <td class="severe-col">≥115</td>
+                                <td class="moderate-col">104-114</td>
+                            </tr>
+                            <tr *ngIf="showUpto18">
+                                <td class="age-col">12-17</td>
+                                <td class="severe-col">≥25</td>
+                                <td class="moderate-col">20-24</td>
+                                <td class="severe-col">≥115</td>
+                                <td class="moderate-col">100-114</td>
+                            </tr>
+                            <tr *ngIf="showAbove18">
+                                <td class="age-col">18+</td>
+                                <td class="severe-col">≥25</td>
+                                <td class="moderate-col">20-24</td>
+                                <td class="severe-col">≥115</td>
+                                <td class="moderate-col">100-114</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

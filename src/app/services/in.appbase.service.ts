@@ -1,7 +1,7 @@
 //BEGIN LICENSE BLOCK 
 //Interneuron Terminus
 
-//Copyright(C) 2021  Interneuron CIC
+//Copyright(C) 2022  Interneuron CIC
 
 //This program is free software: you can redistribute it and/or modify
 //it under the terms of the GNU General Public License as published by
@@ -56,26 +56,26 @@ export class InAppBaseApiService implements OnDestroy {
         this.apiClientFromFW = null;
     }
 
-    get<T>(url: string, params?: HttpParams, headers?: HttpHeaders): Observable<T> {
+    get<T>(url: string, params?: HttpParams, headers?: HttpHeaders) {
         //this.restClient = new RestClient(this.httpClient, this.authService);
         //return this.restClient.get(url, { params: params, headers: headers });
 
         return from(this.apiClientFromFW.getRequest(url));
     }
 
-    post<T>(url: string, body: any, params?: HttpParams, headers?: HttpHeaders): Observable<T> {
+    post<T>(url: string, body: any, params?: HttpParams, headers?: HttpHeaders) {
         //this.restClient = new RestClient(this.httpClient, this.authService);
         //return this.restClient.post(url, body, { params: params, headers: headers });
 
         return from(this.apiClientFromFW.postRequest(url, body));
     }
 
-    put<T>(url: string, body: any, params?: HttpParams, headers?: HttpHeaders): Observable<T> {
+    put<T>(url: string, body: any, params?: HttpParams, headers?: HttpHeaders) {
         //return this.restClient.put(url, body, { params: params, headers: headers });
         return null;
     }
 
-    delete<T>(url: string, params?: HttpParams, headers?: HttpHeaders): Observable<T> {
+    delete<T>(url: string, params?: HttpParams, headers?: HttpHeaders) {
         //return this.restClient.delete(url, { params: params, headers: headers });
 
         return from(this.apiClientFromFW.deleteRequest(url));

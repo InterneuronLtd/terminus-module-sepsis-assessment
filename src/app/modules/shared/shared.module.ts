@@ -1,7 +1,7 @@
 //BEGIN LICENSE BLOCK 
 //Interneuron Terminus
 
-//Copyright(C) 2021  Interneuron CIC
+//Copyright(C) 2022  Interneuron CIC
 
 //This program is free software: you can redistribute it and/or modify
 //it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@ import { CommonModule } from '@angular/common';
 import { FormSectionBaseComponent } from './components/form-section-base.component';
 import { FormActionBaseComponent } from './components/form-action-base.component';
 import { ChartReadingComponent } from './components/chart-reading/chart-reading.component';
-import { ModalModule } from 'ngx-bootstrap';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { OptionCheckboxComponent } from './components/option-checkbox/option-checkbox.component';
 import { OptionCheckboxListComponent } from './components/option-checkbox/option-checkbox-list.component';
 @NgModule({

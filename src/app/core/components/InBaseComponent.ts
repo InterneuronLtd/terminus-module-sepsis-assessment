@@ -1,7 +1,7 @@
 //BEGIN LICENSE BLOCK 
 //Interneuron Terminus
 
-//Copyright(C) 2021  Interneuron CIC
+//Copyright(C) 2022  Interneuron CIC
 
 //This program is free software: you can redistribute it and/or modify
 //it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
 //along with this program.If not, see<http://www.gnu.org/licenses/>.
 //END LICENSE BLOCK 
 
-import { OnDestroy, Injector } from "@angular/core";
+import { OnDestroy, Injector, Injectable } from "@angular/core";
 import { Subject } from 'rxjs';
 import { LoggerService } from 'src/app/services/logger.service';
 import { ContextStateService } from 'src/app/services/context-state.service';
@@ -28,6 +28,8 @@ import { ContextStateService } from 'src/app/services/context-state.service';
 //   selector: 'app-base',
 //   template: `NO UI TO BE FOUND HERE!`,
 // })
+// Angular to do
+@Injectable()
 export class InBaseComponent implements OnDestroy {
   destroy$ = new Subject<boolean>();
   loggerService: LoggerService;

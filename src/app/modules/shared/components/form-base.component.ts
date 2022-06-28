@@ -1,7 +1,7 @@
 //BEGIN LICENSE BLOCK 
 //Interneuron Terminus
 
-//Copyright(C) 2021  Interneuron CIC
+//Copyright(C) 2022  Interneuron CIC
 
 //This program is free software: you can redistribute it and/or modify
 //it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
 //along with this program.If not, see<http://www.gnu.org/licenses/>.
 //END LICENSE BLOCK 
 
-import { Injector, OnDestroy, Output, EventEmitter, Input } from '@angular/core';
+import { Injector, OnDestroy, Output, EventEmitter, Input, Injectable } from '@angular/core';
 import { InBaseComponent } from 'src/app/core/components/InBaseComponent';
 import { GenericMessagePopup, GenericMessagePopupAction } from 'src/app/core/components/generic-message-popup.component';
 import { AssessmentEntity, AssessmentDetail } from 'src/app/models/Assessment.model';
@@ -32,6 +32,7 @@ import { NewModeAssessmentModelBuilderService } from '../services/newmode-assess
 import { TaskModeAssessmentModelBuilderService } from '../services/taskmode-assessment-model-builder.service';
 import { SepsisAssessmentModuleConfigData } from 'src/app/config/app.module.config';
 
+@Injectable()
 export abstract class FormBaseComponent extends InBaseComponent implements OnDestroy {
 
     protected _assessmentContextInput: { assessment: AssessmentEntity; action: ActionModeType };

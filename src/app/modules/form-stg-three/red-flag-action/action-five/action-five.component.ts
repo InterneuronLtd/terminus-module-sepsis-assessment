@@ -1,7 +1,7 @@
 //BEGIN LICENSE BLOCK 
 //Interneuron Terminus
 
-//Copyright(C) 2021  Interneuron CIC
+//Copyright(C) 2022  Interneuron CIC
 
 //This program is free software: you can redistribute it and/or modify
 //it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@ import { FormAPIService } from 'src/app/services/form-api.service';
 import { FORM_STG_THREE_CONFIG } from '../../config/form-stg-three.config';
 import { FormStageThreeContextService } from '../../services/form-stg-three-context.service';
 import { ActionFiveModel } from './actionFive.model';
-import { pipe } from '@angular/core/src/render3';
+//import { pipe } from '@angular/core/src/render3';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({

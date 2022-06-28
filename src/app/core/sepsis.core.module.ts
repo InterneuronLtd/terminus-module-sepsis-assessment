@@ -1,7 +1,7 @@
 //BEGIN LICENSE BLOCK 
 //Interneuron Terminus
 
-//Copyright(C) 2021  Interneuron CIC
+//Copyright(C) 2022  Interneuron CIC
 
 //This program is free software: you can redistribute it and/or modify
 //it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@ import { NgModule, Injector } from '@angular/core';
 import { LoadingIndicatorComponent } from './components/loading-indicator.component';
 import { GenericMessagePopupComponent } from './components/generic-message-popup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ModalModule } from 'ngx-bootstrap';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { CommonModule } from '@angular/common';
 import { InlineLoadingIndicatorComponent } from './components/inline-loading-indicator.component';
 

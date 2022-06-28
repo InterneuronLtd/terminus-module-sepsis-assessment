@@ -1,7 +1,7 @@
 //BEGIN LICENSE BLOCK 
 //Interneuron Terminus
 
-//Copyright(C) 2021  Interneuron CIC
+//Copyright(C) 2022  Interneuron CIC
 
 //This program is free software: you can redistribute it and/or modify
 //it under the terms of the GNU General Public License as published by
@@ -20,9 +20,11 @@
 //END LICENSE BLOCK 
 
 import { AssessmentTask, TaskData, TaskDataItemValue, TaskDataItem } from 'src/app/models/AssessmentTask.model';
-import { OnDestroy, Injector } from '@angular/core';
+import { OnDestroy, Injector, Injectable } from '@angular/core';
 import { InBaseComponent } from 'src/app/core/components/InBaseComponent';
 
+//Angular to do
+@Injectable()
 export class FormActionSectionBaseComponent extends InBaseComponent implements OnDestroy {
 
     displaySelectionCss = 'text-success';

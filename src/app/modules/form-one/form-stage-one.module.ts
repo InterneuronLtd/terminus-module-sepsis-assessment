@@ -1,7 +1,7 @@
 //BEGIN LICENSE BLOCK 
 //Interneuron Terminus
 
-//Copyright(C) 2021  Interneuron CIC
+//Copyright(C) 2022  Interneuron CIC
 
 //This program is free software: you can redistribute it and/or modify
 //it under the terms of the GNU General Public License as published by
@@ -39,7 +39,10 @@ import { SectionThreeComponent } from './section-three/section-three.component';
 import { SectionFourComponent } from './section-four/section-four.component';
 import { FormOneSectionBaseComponent } from './common/components/form-one-section-base.components';
 import { FormOneTaskBaseComponent } from './common/components/form-one-task-base.component';
-import { ModalModule, ButtonsModule, BsDatepickerModule, TimepickerModule } from 'ngx-bootstrap';
+import { ModalModule} from 'ngx-bootstrap/modal';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { FormOneContextService } from './services/form-one-context.service';
 import { AmberFlagActionComponent } from './amber-flag-action/amber-flag-action.component';
 import { ActionSevenComponent } from './red-flag-action/action-seven/action-seven.component';

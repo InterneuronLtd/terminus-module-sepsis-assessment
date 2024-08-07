@@ -1,7 +1,7 @@
 <!--BEGIN LICENSE BLOCK--> 
 <!--Interneuron Terminus
 
-Copyright(C) 2023  Interneuron Holdings Ltd
+Copyright(C) 2024  Interneuron Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -64,7 +64,7 @@ along with this program.If not, see<http://www.gnu.org/licenses/>. -->
           <timepicker class="" [disabled]="readOnly" [(ngModel)]="actionFourModelVM.taskFourTime"
             [showMeridian]="false"></timepicker>
           <input type="text" [disabled]="readOnly" class="form-control" #dp="bsDatepicker" bsDatepicker
-          [(ngModel)]="actionFourModelVM.taskFourdate">
+          [(ngModel)]="actionFourModelVM.taskFourdate" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }">
         </div>
 
       </div>

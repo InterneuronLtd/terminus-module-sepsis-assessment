@@ -1,0 +1,18 @@
+{
+    "infra": {
+        "showLogInConsole": false,
+        "showErrorInConsole": true
+    },
+    "app_service": {
+        "base_uri": "SYNAPSE_DYNAMIC_URI"
+    },
+    "identity_service": {
+        "base_uri": "SYNAPSE_IDENTITY_URI"
+    },
+    "assessment_type_id": "2d06f955-88f6-4fa0-ac5f-3c7dc134f347",
+    "messages": {
+        "form_close_confirmation": "All the unsaved changes will be lost. Are you sure you want to close?",
+        "generic_save_error": "Error saving data",
+        "generic_save_success": "Successfully saved data"
+    }
+}

@@ -1,7 +1,7 @@
 //BEGIN LICENSE BLOCK 
 //Interneuron Terminus
 
-//Copyright(C) 2024  Interneuron Limited
+//Copyright(C) 2025  Interneuron Limited
 
 //This program is free software: you can redistribute it and/or modify
 //it under the terms of the GNU General Public License as published by
@@ -229,7 +229,7 @@ export class AppComponent extends InBaseComponent implements OnInit {
 
   hideAssessmentDetailsInModal(): void {
     this.formModal.hide();
-    this.eventService.unLoadModule.next();
+    this.eventService.unLoadModule.next(undefined);
 
     if (this.unload) {
       this.unload({ name: 'sepsis' });
@@ -247,7 +247,7 @@ export class AppComponent extends InBaseComponent implements OnInit {
     if (!showConfirmation || (this.assessmentContext && (this.assessmentContext.action == 'view'))) {
       this.formModal.hide();
       this.isModalShown = false;
-      this.eventService.unLoadModule.next();
+      this.eventService.unLoadModule.next(undefined);
       if (this.unload) {
         this.unload({ name: 'sepsis' });
       }

@@ -264,7 +264,7 @@ If you have not already created Interneuron sites in IIS, pls follow the below p
 
 ## 📝 License
 
-Interneuron Terminus Copyright(C) 2024 Interneuron Limited
+Interneuron Terminus Copyright(C) 2023  Interneuron Holdings Ltd
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by The Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 

@@ -1,7 +1,7 @@
 //BEGIN LICENSE BLOCK 
 //Interneuron Terminus
 
-//Copyright(C) 2024  Interneuron Limited
+//Copyright(C) 2025  Interneuron Limited
 
 //This program is free software: you can redistribute it and/or modify
 //it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@
 import { Injectable } from '@angular/core';
 import { SepsisAssessmentModuleConfig, SepsisAssessmentModuleConfigData } from './app.module.config';
 import { takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { firstValueFrom, Subject } from 'rxjs';
 import { InAppBaseApiService } from '../services/in.appbase.service';
 import { HttpClient } from '@angular/common/http';
 @Injectable({
@@ -35,10 +35,9 @@ export class SepsisAssessmentConfigService {
     load() {
         const jsonFile = './assets/config/sepsis_assessment_config.json';
         return new Promise<boolean>((resolve, reject) => {
-            this.apiBaseService
+            firstValueFrom(this.apiBaseService
                 .get(jsonFile)
-                .pipe(takeUntil(this.destroy$))
-                .toPromise()
+                .pipe(takeUntil(this.destroy$)))
                 .then((response: any) => {
                     SepsisAssessmentModuleConfigData.Config = <SepsisAssessmentModuleConfig>response;
                     resolve(true);
